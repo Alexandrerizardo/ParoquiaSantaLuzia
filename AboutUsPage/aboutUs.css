@@ -1,0 +1,283 @@
+.sedan-sc-regular {
+    font-family: "Sedan SC", serif;
+    font-style: normal;
+}
+.lustria-regular {
+    font-family: "Lustria", serif;
+    font-style: normal;
+}
+
+header{
+    font-family: "Sedan SC", serif;
+    font-size: 3vh;
+    margin: 0;
+    background-color: #713f12;
+    padding-left: 2vw;
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0vh 1vh 1.5vw #4b2605;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+}
+
+html{
+    font-family: "Lustria", serif;
+    color: white;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #996637;
+}
+
+.buttonsNav button{
+    height: 5vh;
+    width: 6vw;
+    border-radius: 1vh;
+    border: none;
+    background-color: #996637;
+    color: white;
+    font-weight: bold;
+    transition: 0.1s;
+    font-size: 2vh;
+}
+.buttonsNav {
+    display: flex;
+    gap: 2vw;
+    margin-top: 2vh;
+    margin-right: 5vw;
+}
+.buttonsNav button:active{
+    background-color: #4b2605;
+    box-shadow:  0px 2px 8px #4b2605;  
+}
+
+.containerMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20vh;
+}
+
+.titlePage {
+    margin-top: 25vh;
+    background-color: #713f12;
+    width: 15vw;
+    height: 6vh;
+    border-radius: 0px 20vh 20vh 0px;
+    font-size: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh 5vw;
+    box-shadow: 0vh 1vh 3vw #4b2605;
+}
+
+.titlePage h2{
+    padding-right: 3vw;
+}
+.fotoParoco img{
+    width: 25vw;
+    height: 50vh;
+    border-radius: 50%;
+    box-shadow: 0vh 1vh 3vw #4b2605;
+}
+
+.containerFotos{
+    margin-top: 10vh;
+    display: flex;
+    gap: 10vw;
+    align-items: center;
+}
+
+.fotoParoco{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+
+.textPicture{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: #713f12;
+    border-radius: 2vh;
+    width: 20vw;
+    font-size: 3vh 5vw;
+    box-shadow: 0vh 1vh 3vw #4b2605;
+    font-size: 2vh;
+}
+
+.containerHistoria{
+    background-color: #713f12;
+    width: 70%;
+    max-width: 80%;
+    display: flex;
+    text-align: center;
+    border-radius: 2vh;
+    box-shadow: 0vh 1vh 3vw #4b2605;
+    flex-direction: column;
+    word-wrap: break-word;
+    transition: 0.5s;
+}
+
+.containerHistoria h3{
+    font-size: 3vh;
+}
+
+.containerHistoria p{
+    text-align: justify;
+    margin: 5vh;
+    font-size: 3vh;
+    text-indent: 5vh;
+}
+
+.containerHistoria:hover{
+    transform: scale(1.05);
+}
+
+.containerMissionValues{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+}
+
+.mission{
+    background-color: #713f12;
+    border-radius: 2vh;
+    width: 30vw;
+    text-align: center;
+    box-shadow: 0vh 1vh 3vw #4b2605;
+    word-wrap: break-word;
+    font-size: 5vh;
+    min-height: 100vh;
+    transition: 0.5s;
+}
+.mission p{
+    text-align: justify;
+    margin: 5vh;
+    font-size: 2.3vh;
+}
+.mission:hover{
+    transform: scale(1.05);
+}
+.values{
+    background-color: #713f12;
+    border-radius: 2vh;
+    width: 30vw;
+    text-align: center;
+    box-shadow: 0vh 1vh 3vw #4b2605;
+    word-wrap: break-word;
+    margin: 5vh;
+    font-size: 5vh;
+    min-height: 100vh;
+    transition: 0.5s;
+}
+
+.values ul{
+    text-align: justify;
+    margin: 5vh;
+    font-size: 2.3vh;
+}
+
+.values:hover{
+    transform: scale(1.05);
+}
+.svgMissao{
+    width: 20vw;
+    height: 20vh;
+    margin-top: 3vh;
+    margin-bottom: 0;
+}
+
+.padroeira{
+    background-color: #713f12;
+    width: 70%;
+    max-width: 80%;
+    display: flex;
+    text-align: center;
+    border-radius: 2vh;
+    box-shadow: 0vh 1vh 3vw #4b2605;
+    flex-direction: column;
+    word-wrap: break-word;
+    transition: 0.5s;
+    font-size: 2vh;
+}
+
+.padroeira p{
+    text-align: justify;
+    margin: 5vh;
+    font-size: 3vh;
+}
+
+.padroeira:hover{
+    transform: scale(1.05);
+}
+
+.rodape{
+    background-color: #713f12;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10vh;
+}
+.map{
+    width: 50%;
+    display: flex;
+    margin-right: 5vw;
+    margin-bottom: 1vh;
+    margin-top: 2vh;
+}
+.map iframe{
+    float: right;
+    margin: 5vh;
+    border-radius: 2vh;
+    width: 100%;
+    height: 55vh;
+}
+
+.textFooter{
+    float: left;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5vw;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    font-size: 2vh;
+}
+.textFooter ul{
+    gap: 0;
+    margin: 0;
+}
+#contato{
+    display: flex;
+    gap: 1vw;
+}
+#contato div{
+    gap: 0vh;
+    padding: 0;
+}
+#contato a{
+    text-decoration: none;
+    color: white;
+    font-size: 2vh;
+    flex-direction: row;
+}
+
+#contato img{
+    width: 2vw;
+    height: 2vh;
+}

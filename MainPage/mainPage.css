@@ -1,0 +1,141 @@
+.sedan-sc-regular {
+    font-family: "Sedan SC", serif;
+    font-style: normal;
+}
+.lustria-regular {
+    font-family: "Lustria", serif;
+    font-style: normal;
+}
+
+header{
+    font-family: "Sedan SC", serif;
+    font-size: 3vh;
+    margin: 0;
+    background-color: #713f12;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15vh;
+}
+header h2{
+    margin-left: 25px;
+    font-size: 6vh;
+}
+
+html{
+    font-family: "Lustria", serif;
+    color: white;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("https://img.freepik.com/fotos-gratis/fundo-bonito-da-igreja_23-2149285695.jpg?ga=GA1.1.116615494.1715215519");
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.contentMainPage{
+    display: flex;
+    gap: 10vw;
+    margin-top: 3vh;
+    margin-right: 5vw;
+}
+
+.login{
+    background-color: #996637;
+    width: 25vw;
+    height: 50vh;
+    margin-left: 20vh;
+    border-radius: 2vh;
+    box-shadow:  0px 10px 60px black;
+    transition: 0.5s; 
+    display: flex;
+    justify-content: center;
+    gap: 2vh;
+    align-items: center;
+    flex-direction: column;
+}
+.login:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.inputLogin p{
+    margin: 1vh;
+    padding: 0.5vh;
+    font-size: 2vh;
+}
+.inputLogin input{
+    background-color:#713f12;
+    width: 20vw;
+    height: 4vh;
+    border-radius: 1vh;
+    border: none; 
+    color: white;
+    outline: none;
+    transition: 0.2s;
+    font-size: 2vh;
+    padding-left: 20px;
+}
+.inputLogin input:focus{
+    box-shadow:  0px 2px 8px black;
+
+}
+.submitLogin button{
+    background-color:rgb(58, 53, 53);
+    width: 20vw;
+    height: 4vh;
+    border-radius: 10px;
+    border: none;  
+    color: #ffffff;
+    margin-top: 4vh;
+    cursor: pointer;
+    transition: 0.1s;
+    font-size: 2vh;
+}
+.submitLogin button:active{
+    background-color: black;
+    box-shadow:  0px 2px 8px black;
+}
+  
+.containerWelcome{
+    background-color: rgba(82, 74, 74, 0.356);
+    width: 50vw;
+    height: 50vh; 
+    border-radius: 1vh;
+    font-size: 4vh;
+    padding: 2vh;
+    transition: 0.5s;
+}
+
+.containerWelcome:hover{
+    transform: scale(1.05);
+}
+
+.buttonsNav button{
+    height: 5vh;
+    width: 6vw;
+    border-radius: 1vh;
+    border: none;
+    background-color: #996637;
+    color: white;
+    font-weight: bold;
+    transition: 0.1s;
+    font-size: 2vh;
+}
+.buttonsNav {
+    display: flex;
+    gap: 2vw;
+    margin-top: 2vh;
+}
+.buttonsNav button:active{
+    background-color: #4b2605;
+    box-shadow:  0px 2px 8px #4b2605;
+    
+}
+
+          
+    
+  
