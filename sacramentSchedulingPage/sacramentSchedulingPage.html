@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paróquia Santa Luzia - Agendamento de sacramentos</title>
+    <link rel="stylesheet" href="sacramentSchedulingPage.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lustria&family=Sedan+SC&display=swap");
+    </style>
+  </head>
+  <body>
+    <header>
+        <h2>Paróquia Santa Luzia</h2>
+        <div class="buttonsNav">
+          <button>Login</button>
+          <button>Menu</button>
+        </div>
+      </header>
+      <div class="titlePage">
+        <h2>Agende seu sacramento</h2>
+      </div>
+      <div class="containerMain">
+            <form class="mainForm">
+                <input type="text" required placeholder="Nome Completo">
+                <input type="email" required placeholder="Email">
+                <input type="number" min="0" max="99999999999" maxlength="11" placeholder="Telefone">
+
+                <h3>Sacramento que deseja realizar:</h3>
+                <select class="selectForm" required>
+                    <option value="">  </option>
+                    <option value="marry">Matrimônio</option>
+                    <option value="baptism">Batismo</option>
+                    <option value="first">Primeira Comunhão</option>
+                    <option value="confission">Confissão</option>
+                </select>
+
+                <input type="date" required>
+            </form>
+      </div>
+  </body>
+</html>
