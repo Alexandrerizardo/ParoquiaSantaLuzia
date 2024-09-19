@@ -103,15 +103,16 @@ body{
 .containerWelcome{
     background-color: rgba(82, 74, 74, 0.356);
     width: 50vw;
-    height: 50vh; 
+    height: 47vh; 
     border-radius: 1vh;
     font-size: 4vh;
     padding: 2vh;
+    margin-bottom: 5vh;
     transition: 0.5s;
 }
 
 .containerWelcome:hover{
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .buttonsNav button{
