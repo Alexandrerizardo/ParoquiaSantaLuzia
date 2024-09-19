@@ -46,6 +46,9 @@ body{
     font-weight: bold;
     transition: 0.1s;
     font-size: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .buttonsNav {
     display: flex;
@@ -113,7 +116,7 @@ body{
     width: 100%;
 }
 .inputForm input::placeholder{
-    color: white;
+    color: rgb(181, 180, 180);
 }
 .inputForm label{
     margin: 1vh;
@@ -160,7 +163,7 @@ body{
     color: #ffffff;
     margin-top: 4vh;
     cursor: pointer;
-    transition: 0.1s;
+    transition: 0.2s;
     font-size: 2vh;
     margin-bottom: 5vh;
 }
@@ -168,8 +171,9 @@ body{
 .inputForm button:active{
     background-color: black;
     box-shadow: 0 10px 20px 0 #4b2605;
-
+    transform: scale(0.9);
 }
+
 
 .rodape{
     background-color: #713f12;
