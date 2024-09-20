@@ -54,7 +54,7 @@ body{
     transition: 0.5s; 
     display: flex;
     justify-content: center;
-    gap: 2vh;
+    gap: 5vh;
     align-items: center;
     flex-direction: column;
 }
@@ -62,10 +62,12 @@ body{
     transform: scale(1.1);
     transition: 0.5s;
 }
-.inputLogin p{
-    margin: 1vh;
-    padding: 0.5vh;
-    font-size: 2vh;
+
+.inputLogin{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: self-start;
 }
 .inputLogin input{
     background-color:#713f12;
@@ -138,6 +140,13 @@ body{
 }
 .buttonsNav button:hover{
     border: solid 2px #4b2605;
+}
+
+span{
+    margin-bottom: 0;
+    color: white;
+    font-size: 1.5vh;
+    margin-left: 1vh;
 }
 
           

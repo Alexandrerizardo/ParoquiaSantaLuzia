@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+            function verificar(){
+                var nome = document.getElementById("txtNome").value;
+                var idade = document.getElementById("txtIdade").value;
+                var email = document.getElementById("txtEmail").value;
+
+                if(nome.length < 3 || nome.trim() == ""){
+                    let erroSenha = document.querySelector("#erroNome").textContent = "Nome inválido";
+                }
+                
+                if(idade.length == 0 || isNaN(idade)){
+                    document.write("Idade invalida");
+                }
+
+                if(email.indexOf("@") < 0){
+                    alert("Email invalido");
+                     document.write("Email invalido");
+                 }
+            }
+    </script>
+</head>
+<body>
+    <form action="grava.jsp" name="form1" method="post">
+        <fieldset>
+            <legend>Cadastro</legend>
+            <label for="txtNome">Nome:</label>
+            <input type="text" id="txtNome">
+            <span id="erroNome"></span>
+            <br><br>
+            <label for="txtEmail">Email:</label>
+            <input type="text" id="txtEmail">
+            <br><br>
+            <label for="txtIdade">Idade:</label>
+            <input type="text" id="txtIdade">
+            <br><br>
+            <input type="button" value="salvar" onclick="verificar()">
+        </fieldset>
+    </form>
+    
+</body>
+</html>

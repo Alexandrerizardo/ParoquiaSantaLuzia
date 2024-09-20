@@ -8,6 +8,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lustria&family=Sedan+SC&display=swap');
     </style>
+        <script src="loginForm.js"></script>
     <header>
         <div class="headerTitle">
             <h2>Paróquia Santa Luzia</h2>
@@ -20,24 +21,25 @@
     <img src="fotos/intersecting-wave-layers.svg" alt="Divisor">
     <body>
         <div class="contentMainPage">
+            <form action="gravaDB.jsp" name="loginForm" method="post">
             <div class="login">
-
                 <div class="inputLogin">
-                    <p>Email</p>
-                    <input type="text">
+                    <input id="emailLogin" type="text" placeholder="Email">
+                    <span id="erroEmail"></span>
                 </div>
                 <div class="inputLogin">
-                    <p>Senha</p>
-                    <input type="text">
+                    <input id="senhaLogin" type="password" placeholder="Senha">
+                    <span id="erroSenha"></span>
                 </div>
                 <div class="inputLogin">
-                    <p>Confirme a senha</p>
-                    <input type="text">
+                    <input id="senhaConfirmLogin" type="password" placeholder="Confirme a senha">
+                    <span id="erroSenhaConfirm"></span>
                 </div>
                 <div class="submitLogin">
-                    <button> Cadastre-se</button>
+                    <button id="buttonForm" onclick="verificarLogin()"> Cadastre-se</button>
                 </div>
             </div>
+        </form>
 
             <div class="containerWelcome">
                 <P>Seja bem vindo a nossa comunidade paroquial! Aqui você encontrará informações osobre as nossas missas, eventos, e atividades pastorais. Sinta-se em casa para explorar e conhecer mais sobre nossa fé, nossa história e como você pode se envolver.</P>
