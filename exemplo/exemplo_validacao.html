@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Validação</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="form1" action="grava.jsp" method="post">
+        <fieldset>
+            <legend>Cadastro</legend>
+            <label for="txtNome">Nome:</label>
+            <input type="text" id="txtNome" name="txtNome">
+            <span id="erroNome"></span>
+            <br>
+
+            <label for="txtIdade">Idade:</label>
+            <input type="text" id="txtIdade" name="txtIdade">
+            <span id="erroIdade"></span>
+            <br>
+
+            <label for="txtEmail">Email:</label>
+            <input type="text" id="txtEmail" name="txtEmail">
+            <span id="erroEmail"></span>
+            <br>
+            <input type="button" onclick="verificar()" value="Salvar">
+        </fieldset>
+    </form>
+
+    <script>
+        function limpar(){
+            document.getElementById("txtNome").style.backgroundColor = "white" ;
+            document.getElementById("txtIdade").style.backgroundColor = "white" ;
+            document.getElementById("txtEmail").style.backgroundColor = "white" ;
+            document.querySelector("#erroNome").textContent = "" ;
+            document.querySelector("#erroIdade").textContent = "" ;
+            document.querySelector("#erroEmail").textContent = "" ;
+        
+        }
+
+        function verificar(){
+            limpar() ;
+            var enviar = true ;
+
+            var n = document.getElementById("txtNome").value;
+            if( n.length == 0 ) {
+                enviar = false ;
+                document.querySelector("#erroNome").textContent = "Preencha o campo nome" ;
+                document.getElementById("txtNome").style.backgroundColor = "lightyellow" ;
+            }
+
+
+            var i = document.getElementById("txtIdade").value ;
+            if( isNaN(i)  ||  i.length == 0 ){
+                enviar = false ;
+                document.querySelector("#erroIdade").textContent = "Preencha corretamente o campo idade" ;
+                document.getElementById("txtIdade").style.backgroundColor = "lightyellow" ;
+            }
+
+            var e = document.getElementById("txtEmail").value ;
+            if( e.indexOf("@") < 0){
+                enviar = false ;
+                document.querySelector("#erroEmail").textContent = "Preencha corretamente o campo E-mail" ;
+                document.getElementById("txtEmail").style.backgroundColor = "lightyellow" ;
+            }
+
+
+            if( enviar ){
+                document.form1.submit();
+            }
+        }
+    </script>
+</body>
+
+</html>
