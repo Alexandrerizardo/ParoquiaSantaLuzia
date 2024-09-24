@@ -85,7 +85,7 @@ body{
     box-shadow:  0px 10px 50px black;
 
 }
-.submitLogin button{
+#buttonForm{
     background-color:rgb(58, 53, 53);
     width: 20vw;
     height: 4vh;
@@ -97,7 +97,7 @@ body{
     transition: 0.1s;
     font-size: 2vh;
 }
-.submitLogin button:active{
+#buttonForm:active{
     background-color: black;
     box-shadow:  0px 10px 50px black;
 }
@@ -127,6 +127,14 @@ body{
     font-weight: bold;
     transition: 0.1s;
     font-size: 2vh;
+    text-decoration: none;
+}
+.buttonsNav button a{
+
+    color: white;
+    font-weight: bold;
+    font-size: 2vh;
+    text-decoration: none;
 }
 .buttonsNav {
     display: flex;
