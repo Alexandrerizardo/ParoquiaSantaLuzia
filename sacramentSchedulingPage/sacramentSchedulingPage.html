@@ -37,42 +37,50 @@
     </li>
   </ul>
   </nav>
+  <dialog>
+    <P>Agendamento realizado!</P>
+    <button onclick="closeModal()">Sair</button>
+  </dialog>
+</div>
       <div class="containerMain">
-      
+
         <form class="mainForm">
           <div class="formContent">
             <div class="inputForm">
               <label for="txtName">Nome Completo:</label>
-              <input type="text" id="txtName" required placeholder="Nome Completo">
+              <input name="nome" type="text" id="txtName">
+              <span id="erroNome"></span>
             </div>
             <div class="inputForm">      
               <label for="txtEmail">Email:</label>
-              <input type="text" id="txtEmail" required placeholder="Email">
+              <input type="text" id="txtEmail">
                 <span id="erroEmail"></span>
             </div>
             <div class="inputForm">
               <label for="txtTel">Telefone:</label>
-              <input type="text" min="0" max="99999999999" required maxlength="11" placeholder="Telefone">
+              <input id="txtTel" type="text" min="0" max="99999999999"  maxlength="11">
+              <span id="erroTel"></span>
             </div>
           
             <div class="inputForm">
-              <label for="">Sacramento que deseja realizar:</label>
-              <select class="selectForm" required>
+              <label>Sacramento que deseja realizar:</label>
+              <select id="selectForm" >
                 <option value="">  </option>
                 <option value="marry">Matrimônio</option>
                 <option value="baptism">Batismo</option>
                 <option value="first">Primeira Comunhão</option>
                 <option value="confission">Confissão</option>
               </select>
+              <span id="erroSelect"></span>
             </div>
 
             <div class="inputForm">
               <label for="dateSacrament">Datas disponíveis:</label>
-              <input type="date" id="dateSacrament" required>
+              <input type="date" id="dateSacrament" >
             </div>
 
             <div class="inputForm">
-              <button id="buttonForm">Enviar</button>
+              <input type="button"  id="buttonForm" onclick="formValidation()" value="Enviar">
             </div>
                   </div>
                 </form>
