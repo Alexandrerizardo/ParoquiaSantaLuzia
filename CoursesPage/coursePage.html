@@ -8,17 +8,44 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Lustria&family=Sedan+SC&display=swap");
     </style>
+    <script src="courses.js"></script>
   </head>
   <body>
     <header>
       <h2>Paróquia Santa Luzia</h2>
       <div class="buttonsNav">
-        <button><img src="fotos/menu-svgrepo-com (1).svg" alt=""></button>
+        <button id="btnMenu" type="button" onclick="menu()"><img src="fotos/menu-svgrepo-com (1).svg" alt=""></button>
     </div>
     </header>
+
     <div class="titlePage">
       <h2>Nossos cursos</h2>
     </div>
+
+    <div>
+      <dialog>
+        <P>Recurso disponível em breve!</P>
+        <button onclick="closeModal()">Sair</button>
+      </dialog>
+    </div>
+
+    <nav class="asideNav"></nav>
+    <ul id="divNav">
+    <h3>Menu do usuário</h3>
+  <li id="contentNav">
+     <a href="../AboutUsPage/aboutUs.html"><button>Sobre nós</button></a>
+  </li>
+  <li id="contentNav">  
+      <a href="../Ministeries&GroupsPage/ministeries&GroupsPage.html"><button>Ministérios e grupos</button></a>
+  </li>
+  <li id="contentNav">
+      <a href="../sacramentSchedulingPage/sacramentSchedulingPage.html"><button>Agendar Sacramento</button> </a>
+  </li>
+  <li id="contentNav">
+      <a href="../MainPage/mainPage.html"><button>Sair</button></a>
+  </li>
+</ul>
+</nav>
     <div class="containerMain">
       <div class="cards">
         <div class="principalCard">
@@ -31,7 +58,7 @@
               <h3>Catequese de adultos</h3>
               <p>1 ano de duração</p>
             </div>
-            <button>Saber mais</button>
+            <button id="btnPlus" type="button" onclick="popUp()">Saber mais</button>
           </div>
         </div>
         <div class="principalCard">
@@ -44,7 +71,7 @@
               <h3>Catequese de crianças</h3>
               <p>2 anos de duração</p>
             </div>
-            <button>Saber mais</button>
+            <button id="btnPlus" type="button" onclick="popUp()">Saber mais</button>
           </div>
         </div>
         <div class="principalCard">
@@ -57,7 +84,7 @@
               <h3>Educação financeira</h3>
               <p>3 meses de duração</p>
             </div>
-            <button>Saber mais</button>
+            <button  id="btnPlus" type="button" onclick="popUp()">Saber mais</button>
           </div>
         </div>
         <div class="principalCard">
@@ -70,7 +97,7 @@
               <h3>Curso de matrimônio</h3>
               <p>6 meses de duração</p>
             </div>
-            <button>Saber mais</button>
+            <button  id="btnPlus" type="button" onclick="popUp()">Saber mais</button>
           </div>
         </div>
         <div class="principalCard">
@@ -83,7 +110,7 @@
               <h3>Teologia e filosofia</h3>
               <p>1 ano e 6 meses de duração</p>
             </div>
-            <button>Saber mais</button>
+            <button  id="btnPlus" type="button" onclick="popUp()">Saber mais</button>
           </div>
         </div>
         <div class="principalCard">
@@ -96,7 +123,7 @@
               <h3>Canto e instrumentos</h3>
               <p>1 ano de duração</p>
             </div>
-            <button>Saber mais</button>
+            <button  id="btnPlus" type="button" onclick="popUp()">Saber mais</button>
           </div>
         </div>
       </div>
