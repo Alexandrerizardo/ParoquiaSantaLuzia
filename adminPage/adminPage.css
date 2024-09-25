@@ -81,6 +81,7 @@ body{
 }
 
 .titlePage h2{
+    font-size: 2.8vh;
     padding-right: 2vw;
 }
 
@@ -97,7 +98,6 @@ body{
 }
 
 #divNav{
-   
     background-color: #713f12;
     width: 20%;
     height: 100vh;
@@ -105,6 +105,7 @@ body{
     box-shadow: 0 1vh 2vh 0 #4b2605;
     position: fixed;
     list-style-type: none;
+    transition: 0.5s;
 }
 
 #divNav h3{

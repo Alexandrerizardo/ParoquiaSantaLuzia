@@ -14,15 +14,28 @@
             <h2>Paróquia Santa Luzia</h2>
         </div>
         <div class="buttonsNav">
-            <button>Login</button>
+            <button id="btnLogin" type="button" onclick="telaLogin()">Login</button>
             <button><a href="http://127.0.0.1:5500/AboutUsPage/aboutUs.html">Sobre nós</a></button>
         </div>
     </header>
     <img src="fotos/intersecting-wave-layers.svg" alt="Divisor">
     <body>
+        <div>
+            <dialog>
+              <P>Usuário criado! Verifique seu email.</P>
+              <button onclick="closeModal()">Sair</button>
+            </dialog>
+          </div>
+
+          <div>
+            <dialog id="d2">
+              <P>Usuário aceito!</P>
+              <button onclick="closeModal()">Sair</button>
+            </dialog>
+          </div>
         <div class="contentMainPage">
-            <form name="loginForm" action="gravaTeste.jsp" method="post" >
-            <div class="login">
+            <form name="cadastroForm" action="gravaTeste.jsp" method="post" >
+            <div id="login">
                 <div class="inputLogin">
                     <input id="emailLogin" type="text" placeholder="Email">
                     <span id="erroEmail"></span>
@@ -36,12 +49,32 @@
                     <span id="erroSenhaConfirm"></span>
                 </div>
                 <div class="submitLogin">
-                    <input type="button"  id="buttonForm" onclick="verificarLogin()" value="Cadastre-se">
+                    <input type="button"  id="buttonForm" onclick="verificarCadastro()" value="Cadastre-se"><a href="../CoursesPage/coursePage.html"></a>
                 </div>
             </div>
         </form>
 
-            <div class="containerWelcome">
+        <span>
+            <form name="loginForm" action="gravaTeste.jsp" method="post" >
+                <div id="loginForm">
+                    <h2>Seja bem vindo!</h2>
+                    <div class="inputLogin">
+                        <input id="email" type="text" placeholder="Email">
+                        <span id="erroEmail"></span>
+                    </div>
+                    <div class="inputLogin">
+                        <input id="senha" type="password" placeholder="Senha">
+                        <span id="erroSenha"></span>
+                    </div>
+                    <div class="submitLogin2">
+                    <a href="../MainPage/mainPage.html">Não tem login? Cadastrar</a>
+                        <input type="button"  id="buttonFormLogin" onclick="verificarFormLogin()" value="Login">
+                    </div>
+                </div>
+            </form>
+        </span>
+
+            <div id="containerWelcome">
                 <P>Seja bem vindo a nossa comunidade paroquial! Aqui você encontrará informações osobre as nossas missas, eventos, e atividades pastorais. Sinta-se em casa para explorar e conhecer mais sobre nossa fé, nossa história e como você pode se envolver.</P>
                 <p>Que Deus o abençoe e ilumine Sempre!</p>
             </div>
