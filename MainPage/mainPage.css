@@ -44,7 +44,7 @@ body{
     margin-right: 5vw;
 }
 
-.login{
+#login{
     background-color: #996637;
     width: 25vw;
     height: 50vh;
@@ -58,7 +58,7 @@ body{
     align-items: center;
     flex-direction: column;
 }
-.login:hover{
+#login:hover{
     transform: scale(1.1);
     transition: 0.5s;
 }
@@ -102,7 +102,7 @@ body{
     box-shadow:  0px 10px 50px black;
 }
   
-.containerWelcome{
+#containerWelcome{
     background-color: rgba(82, 74, 74, 0.356);
     width: 50vw;
     height: 47vh; 
@@ -111,9 +111,9 @@ body{
     padding: 2vh;
     margin-bottom: 5vh;
     transition: 0.5s;
-}
+    }
 
-.containerWelcome:hover{
+#containerWelcome:hover{
     transform: scale(1.02);
 }
 
@@ -157,6 +157,87 @@ span{
     margin-left: 1vh;
 }
 
-          
+#loginForm{
+    background-color: #996637;
+    width: 25vw;
+    height: 50vh;
+    margin-left: 55vh;
+    border-radius: 2vh;
+    box-shadow:  0px 10px 60px black;
+    transition: 0.5s; 
+    display: none;
+    justify-content: center;
+    gap: 5vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+#loginForm h2{
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    margin-top: 5vh;
+    font-size: 3vh;
+}
+
+#loginForm:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+#buttonFormLogin{
+    background-color:rgb(58, 53, 53);
+    width: 20vw;
+    height: 4vh;
+    border-radius: 10px;
+    border: none;  
+    color: #ffffff;
+    margin-top: 4vh;
+    cursor: pointer;
+    transition: 0.1s;
+    font-size: 2vh;
+    margin-bottom: 10vh;
+}
+
+#buttonFormLogin:active{
+    background-color: black;
+    box-shadow:  0px 10px 50px black;
+}
+
+#loginForm a{
+    text-decoration: none;
+    color: white;
+    margin-bottom: -3vh;
+}
+.submitLogin2{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+}
+
+dialog{
+    border: solid 2px #713f12;
+    background-color: #4b2605ba;
+    color: white;
+    width: 30vw;
+    height: 15vh;
+    border-radius: 2vh;
+    text-align: center;
+    font-size: 3vh;
+    box-shadow: 0 1vh 2vh 0 #4b2605;
+}
+
+dialog button{
+    width: 10vw;
+    height: 3vh;
+    border-radius: 1vh;
+    color: white;
+    background-color: #996637;
+    border: none;
+    font-size: 2vh;
+
+}
+        
     
   
