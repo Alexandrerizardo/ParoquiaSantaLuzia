@@ -1,6 +1,6 @@
 # Paróquia Santa Luzia
 
-## Descrição
+## Descrição  
 
 O projeto **Paróquia Santa Luzia** foi desenvolvido com o objetivo de facilitar e digitalizar a interação entre a comunidade e a paróquia. Ele permite a inscrição em cursos, participação em ministérios e grupos, além de fornecer informações detalhadas sobre a igreja. O projeto também possibilita o agendamento de sacramentos de forma online, automatizando algumas das funções tradicionais da secretaria da igreja.
 
