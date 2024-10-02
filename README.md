@@ -60,8 +60,3 @@ Este projeto está licenciado sob os termos da licença **MIT**. Para mais detal
 Caso tenha dúvidas, sugestões ou queira contribuir com o projeto, entre em contato:
 
 - **Email:** alexandrejr1313@hotmail.com
-
----
-
-Esse README deve fornecer uma boa apresentação do seu projeto e ajudar os usuários e colaboradores a entenderem como ele funciona.
- 
