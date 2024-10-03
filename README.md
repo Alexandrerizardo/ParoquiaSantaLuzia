@@ -33,7 +33,7 @@ Para executar o projeto localmente, siga as etapas abaixo:
 ## Como Usar
 
 A versão hospedada do projeto pode ser acessada diretamente através do seguinte link:  
-**[Acesse o site da Paróquia Santa Luzia](#)**
+**[Acesse o site da Paróquia Santa Luzia]((https://paroquiasantaluzia.vercel.app/))**
 
 ## Estrutura de Pastas
 
