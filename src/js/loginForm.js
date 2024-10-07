@@ -19,6 +19,9 @@ function verificarCadastro() {
     if (email.indexOf("@") < 0 || email.length == 0) {
         send = false;
         document.querySelector("#erroEmail").textContent = "Email inválido.";
+    }else if (email.indexOf(" ") >= 0) {
+        send = false;
+        document.querySelector("#erroEmail").textContent = "Email contém espaço em branco.";
     }
 
     if (senhaConfirm != senha || senhaConfirm.length == 0) {

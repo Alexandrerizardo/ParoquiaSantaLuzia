@@ -10,3 +10,13 @@ function menu(){
     }
         
 }
+
+document.addEventListener('click', function(event) {
+    const menuDiv = document.getElementById('divNav');
+    const menuButton = document.getElementById('btnMenu');
+
+    if (!menuDiv.contains(event.target) && !menuButton.contains(event.target)) {
+        menuDiv.style.width = '0%';
+        menuDiv.style.opacity = '0';
+    }
+});
