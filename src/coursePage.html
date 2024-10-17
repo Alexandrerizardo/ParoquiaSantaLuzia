@@ -24,10 +24,21 @@
 
     <div>
       <dialog>
-        <P>Recurso disponível em breve!</P>
-        <button onclick="closeModal()">Sair</button>
+        <div class="closeBtn">
+          <button onclick="closeModal()" id="btnClose">X</button>
+        </div>
+        <P>Inscreva-se!</P>
+        <div class="contentFormCurso">
+          <input type="text" id="nameUser" placeholder="Nome completo">
+          <input type="date" id="dateNasc" placeholder="Data de nascimento">
+          <input type="text" id="cpfUser" placeholder="CPF">
+          <input type="text" id="addressUser" placeholder="Endereço">
+          <input type="text" id="telUser" placeholder="Telefone">
+          <input type="text" id="emailUser" placeholder="Email">
+        </div>
+        <button onclick="" id="btnSubmit">Enviar</button>
       </dialog>
-    </div>
+    </div> 
 
     <nav class="asideNav"></nav>
     <ul id="divNav">

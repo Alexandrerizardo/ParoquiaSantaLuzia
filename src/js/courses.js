@@ -1,6 +1,6 @@
 
 function menu(){
-    var menuDiv = document.getElementById('divNav');
+    const menuDiv = document.getElementById('divNav');
     if (menuDiv.style.width === '0%' || menuDiv.style.width === "") {
         menuDiv.style.width = '20%';
        menuDiv.style.opacity = '1';
@@ -29,4 +29,10 @@ function closeModal(){
     modal.close();
 }
 
-
+document.addEventListener('click', function(event) {
+    const botao = document.querySelector('btnClose');
+    const modal = document.querySelector('dialog');
+    if (!botao.contains(event.target)) {
+        modal.close();
+    }
+});
