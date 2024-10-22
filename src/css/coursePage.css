@@ -145,7 +145,7 @@ body{
     font-size: 1.5vh;
     font-weight: bold;
     transition: 0.1s;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap; 
  
 }
 .contentCard button:active{
@@ -303,7 +303,12 @@ body{
     gap: 1vh;
     margin-bottom: 1vh;
 }
+.contentFormCurso span{
+    display: flex;
+    float: left;
+}
 .closeBtn{
+    justify-content: center;
     display: flex;
     float: right;
 }
@@ -320,6 +325,7 @@ dialog{
     box-shadow: 0 1vh 2vh 0 #4b2605;
     position: fixed; 
     overflow: hidden;
+    transition: 0.2s;
 }
 dialog input{
     margin-bottom: 1vh;
@@ -338,7 +344,7 @@ dialog input:focus{
     box-shadow:  0px 10px 50px black;
 }
 dialog input::placeholder{
-    color: white;
+    color: rgba(255, 255, 255, 0.537);
 }
 
 #btnClose{
@@ -367,6 +373,13 @@ dialog button:active{
     transform: scale(0.9);
     background-color: #4b2605;
     box-shadow: 0 10px 20px 0 #4b2605;
+}
+
+
+span{
+    color: white;
+    font-size: 1.5vh;
+    float: left;
 }
 
 
