@@ -1,3 +1,43 @@
+<%@page language="java" import="java.sql.*"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%
+  if ("POST".equals(request.getMethod())) {
+  String fnome = request.getParameter("txtNome");
+  String femail = request.getParameter("txtEmail");
+  String ftel = request.getParameter("txtTel");
+  String fsenha = request.getParameter("txtSenha");
+  String fendereco = request.getParameter("txtEndereco");
+
+  String nomeBanco = "paroquia";
+  String enderecoBanco = "jdbc:mysql://localhost:3306/" + nomeBanco;
+  String nomeUsuario = "root";
+  String senhaBanco = "";
+
+  String driver = "com.mysql.jdbc.Driver";
+  Class.forName(driver);
+
+  Connection conexao;
+
+  conexao = DriverManager.getConnection(enderecoBanco, nomeUsuario, senhaBanco);
+  String query = "INSERT INTO usuarios (Nome, Email, Senha, Telefone, Endereco) VALUES (?, ?, ?, ?, ?)";
+
+  PreparedStatement stm = conexao.prepareStatement(query);
+
+  stm.setString(1, fnome);
+  stm.setString(2, femail);
+  stm.setString(3, fsenha);
+  stm.setString(4, ftel);
+  stm.setString(5, fendereco);
+
+  stm.execute();
+  stm.close();
+
+  //response.sendRedirect("okPage.jsp");
+  }
+%>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -20,6 +60,7 @@
     </header>
     <img src="./assets/mainPage/intersecting-wave-layers.svg" alt="Divisor">
     <body>
+        
         <div>
             <dialog>
               <P>Usuário criado! Verifique seu email.</P>
@@ -33,15 +74,28 @@
               <button onclick="closeModal()">Sair</button>
             </dialog>
           </div>
+
         <div class="contentMainPage">
-            <form name="cadastroForm" action="gravaTeste.jsp" method="post" >
+            <form name="cadastroForm" action="index.jsp" method="post" onsubmit="return verificarCadastro()">
             <div id="login">
                 <div class="inputLogin">
-                    <input id="emailLogin" type="text" placeholder="Email">
+                    <input name="txtNome" id="nomeLogin" type="text" placeholder="Nome">
+                    <span id="erroNome"></span>
+                </div>
+                <div class="inputLogin">
+                    <input name="txtEndereco" id="enderecoLogin" type="text" placeholder="Endereço">
+                    <span id="erroEndereco"></span>
+                </div>
+                <div class="inputLogin">
+                    <input name="txtTel" id="telefoneLogin" type="text" placeholder="Telefone" maxlength="15" oninput="formatTel(this)">
+                    <span id="erroTelefone"></span>
+                </div>
+                <div class="inputLogin">
+                    <input name="txtEmail" id="emailLogin" type="text" placeholder="Email">
                     <span id="erroEmail"></span>
                 </div>
                 <div class="inputLogin">
-                    <input id="senhaLogin" type="password" placeholder="Senha">
+                    <input name="txtSenha" id="senhaLogin" type="password" placeholder="Senha">
                     <span id="erroSenha"></span>
                 </div>
                 <div class="inputLogin">
@@ -49,7 +103,7 @@
                     <span id="erroSenhaConfirm"></span>
                 </div>
                 <div class="submitLogin">
-                    <input type="button"  id="buttonForm" onclick="verificarCadastro()" value="Cadastre-se"><a href="../CoursesPage/coursePage.html"></a>
+                    <input type="submit"  id="buttonForm" value="Cadastre-se">
                 </div>
             </div>
         </form>
@@ -67,7 +121,7 @@
                         <span id="erroSenha"></span>
                     </div>
                     <div class="submitLogin2">
-                    <a href="./index.html">Não tem login? Cadastrar</a>
+                    <a href="./index.jsp">Não tem login? Cadastrar</a>
                         <input type="button" id="buttonFormLogin" onclick="verificarFormLogin()" value="Login">
                     </div>
                 </div>

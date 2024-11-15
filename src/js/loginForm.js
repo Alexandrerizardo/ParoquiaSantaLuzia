@@ -1,9 +1,44 @@
 function verificarCadastro() {
     loginClear();
+    let nome  = document.getElementById("nomeLogin").value;
+    let endereco = document.getElementById("enderecoLogin").value;
+    let tel = document.getElementById("telefoneLogin").value;
     let email = document.getElementById("emailLogin").value;
     let senha = document.getElementById("senhaLogin").value;
     let senhaConfirm = document.getElementById("senhaConfirmLogin").value;
     let send = true;
+
+    const regexTel = /^\d{2}\ \d{5}\-\d{4}$/;
+
+    if (nome.length == 0) {
+        send = false;
+        document.querySelector("#erroNome").textContent = "Insira um nome.";
+      }else if(nome.length > 0 && nome.length < 3){
+        send = false;
+        document.querySelector("#erroNome").textContent = "O nome deve conter no mínimo 3 caracteres.";
+      }else if(/\d/.test(nome)){
+        send = false;
+        document.querySelector("#erroNome").textContent = "O nome contém números";
+      }else {
+        document.querySelector("#erroNome").textContent = "";
+  }
+
+      if (endereco.length == 0) {
+        send = false;
+        document.querySelector("#erroEndereco").textContent = "Endereço inválido.";
+      }else{
+        document.querySelector("#erroEndereco").textContent = "";
+      }
+    
+      if (tel.length == 0) {
+        send = false;
+        document.querySelector("#erroTelefone").textContent = "Telefone inválido.";
+      } else if (regexTel.test(tel)) {
+        send = false;
+        document.querySelector("#erroTelefone").textContent ="Número de telefone inválido.";
+      } else {
+        document.querySelector("#erroTelefone").textContent = "";
+      }
 
     if (senha.length == 0) {  
         send = false;
@@ -30,7 +65,10 @@ function verificarCadastro() {
     }
 
     if (send) {
-        popUp();
+      popUp();
+      return true;
+    }else{
+      return false;
     }
 
 }
@@ -48,6 +86,9 @@ function closeModal(){
 }
 
 function loginClear() {
+    document.querySelector("#erroNome").textContent = "";
+    document.querySelector("#erroEndereco").textContent = "";
+    document.querySelector("#erroTelefone").textContent = "";
     document.querySelector("#erroSenha").textContent = "";
     document.querySelector("#erroEmail").textContent = "";
     document.querySelector("#erroSenhaConfirm").textContent = "";
@@ -75,6 +116,7 @@ function verificarFormLogin(){
     let email = document.getElementById("email").value;
     let senha = document.getElementById("senha").value;
     let send = true;
+   // let lsEmail = localStorage.setItem()
 
     if (senha.length == 0) {  
         send = false;
@@ -99,3 +141,15 @@ function verificarFormLogin(){
     }
 
 }
+
+function formatTel(input) {
+    let value = input.value.replace(/\D/g, "");
+  
+    if (value.length > 2 && value.length <= 7) {
+      input.value = value.replace(/(\d{2})(\d+)/, "($1) $2");
+    } else if (value.length > 7 && value.length <= 11) {
+      input.value = value.replace(/(\d{2})(\d{5})(\d+)/, "($1) $2-$3");
+    } else {
+      input.value = value;
+    }
+  }

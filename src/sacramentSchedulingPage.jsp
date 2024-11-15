@@ -1,3 +1,28 @@
+<%@page language="java" import="java.sql.*"%>
+<%
+  String Fnome = request.getParameter("txtNome");
+  String Femail = request.getParameter("txtEmail");
+  String Ftel = request.getParameter("txtTel");
+  String Fsacrament = request.getParameter("txtSelect");
+  String Fdata = request.getParameter("txtData");
+
+  String nomeBanco = "paroquia";
+  String enderecoBanco = "jdbc:mysql://localhost:3306/" + nomeBanco;
+  String nomeUsuario = "root";
+  String senhaBanco = "";
+
+  String driver = "com.mysql.jdbc.Driver";
+  Class.forName(driver);
+
+  Connection conexao;
+
+  conexao = DriverManager.getConnection(enderecoBanco, nomeUsuario, senhaBanco);
+
+
+  //String query = "INSERT INTO agendasacramento (Nome_Sacramento, Data_Agendada, CPF_Usuario)"
+
+%>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -44,27 +69,27 @@
 </div>
       <div class="containerMain">
 
-        <form class="mainForm">
+        <form class="mainForm" action="sacramentSchedulingPage.jsp" >
           <div class="formContent">
             <div class="inputForm">
               <label for="txtName">Nome Completo:</label>
-              <input name="nome" type="text" id="txtName">
+              <input name="txtNome" type="text" id="txtName">
               <span id="erroNome"></span>
             </div>
             <div class="inputForm">      
               <label for="txtEmail">Email:</label>
-              <input type="text" id="txtEmail">
+              <input name="txtEmail" type="text" id="txtEmail">
                 <span id="erroEmail"></span>
             </div>
             <div class="inputForm">
               <label for="txtTel">Telefone:</label>
-              <input id="txtTel" type="text" min="0" max="99999999999"  maxlength="15" oninput="formatTel(this)">
+              <input name="txtTel" id="txtTel" type="text" min="0" max="99999999999"  maxlength="15" oninput="formatTel(this)">
               <span id="erroTel"></span>
             </div>
           
             <div class="inputForm">
               <label>Sacramento que deseja realizar:</label>
-              <select id="selectForm" >
+              <select name="txtSelect" id="selectForm" >
                 <option value="">  </option>
                 <option value="marry">Matrimônio</option>
                 <option value="baptism">Batismo</option>
@@ -76,14 +101,14 @@
 
             <div class="inputForm">
               <label for="dateSacrament">Datas disponíveis:</label>
-              <input type="date" id="dateSacrament" >
+              <input name="txtData" type="date" id="dateSacrament" >
             </div>
 
             <div class="inputForm">
               <input type="button"  id="buttonForm" onclick="formValidation()" value="Enviar">
             </div>
                   </div>
-                </form>
+            </form>
       </div>
 
       <footer class="rodape">
