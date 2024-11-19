@@ -18,41 +18,29 @@ document.addEventListener("click", function (event) {
   }
 });
 
-function popUp1() {
+function popUp(idPopUp) {
+
   const modal = document.querySelector("dialog");
-  const modalTitle = (document.querySelector("#titlePopUp").textContent =
-    "Catequese de adultos");
+  document.querySelector("#titlePopUp").textContent = obterNomeCurso(idPopUp);
+  document.querySelector("#idCurso").value = idPopUp;
   modal.showModal();
 }
-function popUp2() {
-  const modal = document.querySelector("dialog");
-  const modalTitle = (document.querySelector("#titlePopUp").textContent =
-    "Catequese de Crianças");
-  modal.showModal();
-}
-function popUp3() {
-  const modal = document.querySelector("dialog");
-  const modalTitle = (document.querySelector("#titlePopUp").textContent =
-    "Educação financeira");
-  modal.showModal();
-}
-function popUp4() {
-  const modal = document.querySelector("dialog");
-  const modalTitle = (document.querySelector("#titlePopUp").textContent =
-    "Curso de matrimônio");
-  modal.showModal();
-}
-function popUp60() {
-  const modal = document.querySelector("dialog");
-  const modalTitle = (document.querySelector("#titlePopUp").textContent =
-    "Teologia e filosofia");
-  modal.showModal();
-}
-function popUp6() {
-  const modal = document.querySelector("dialog");
-  const modalTitle = (document.querySelector("#titlePopUp").textContent =
-    "Canto e instrumentos");
-  modal.showModal();
+
+function obterNomeCurso(idPopUp) {
+  switch (idPopUp) {
+    case 1:
+      return "Catequese de adultos";
+    case 2:
+      return "Catequese de Crianças";
+    case 3:
+      return "Educação financeira";
+    case 4:
+      return "Curso de matrimônio";
+    case 5:
+      return "Teologia e filosofia";
+    case 6:
+      return "Canto e instrumentos";
+  }
 }
 function closeModal() {
   const modal = document.querySelector("dialog");
@@ -116,10 +104,12 @@ function verificarCurso() {
 
   if (telefone.length == 0) {
     send = false;
-    document.querySelector("#erroTel").textContent ="Número de telefone inválido.";
+    document.querySelector("#erroTel").textContent =
+      "Número de telefone inválido.";
     document.querySelector("dialog").style.height = "60vh";
   } else if (!regexTel.test(telefone)) {
-    document.querySelector("#erroTel").textContent ="Número de telefone inválido.";
+    document.querySelector("#erroTel").textContent =
+      "Número de telefone inválido.";
     document.querySelector("dialog").style.height = "60vh";
   }
 
