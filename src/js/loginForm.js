@@ -136,8 +136,11 @@ function verificarFormLogin(){
     }
 
     if (send) {
+      return true;
         const modal = document.querySelector('#d2');
         modal.showModal();
+    }else{
+      return false;
     }
 
 }

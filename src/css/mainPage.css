@@ -43,7 +43,21 @@ body{
     margin-top: 3vh;
     margin-right: 5vw;
 }
-
+#loginForm{
+    background-color: #996637;
+    width: 25vw;
+    height: 60vh;
+    margin-left: 20vh;
+    margin-bottom: 5vh;
+    border-radius: 2vh;
+    box-shadow:  0px 10px 60px black;
+    transition: 0.5s; 
+    display: flex;
+    justify-content: center;
+    gap: 1.7vh;
+    align-items: center;
+    flex-direction: column;
+}
 #login{
     background-color: #996637;
     width: 25vw;
