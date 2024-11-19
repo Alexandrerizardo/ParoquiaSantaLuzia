@@ -1,0 +1,165 @@
+.sedan-sc-regular {
+    font-family: "Sedan SC", serif;
+    font-style: normal;
+}
+.lustria-regular {
+    font-family: "Lustria", serif;
+    font-style: normal;
+}
+
+header{
+    font-family: "Sedan SC", serif;
+    font-size: 3vh;
+    margin: 0;
+    background-color: #713f12;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15vh;
+}
+header h2{
+    margin-left: 25px;
+    font-size: 6vh;
+}
+
+html{
+    font-family: "Lustria", serif;
+    color: white;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #996637;
+}
+p{
+    margin: 2vh;
+}
+
+.contentMainPage{
+    display: flex;
+    gap: 10vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+  #form{
+    margin-top: 10vh;
+    background-color: #713f12;
+    display: flex;
+    width: 25vw;
+    height: 50vh;
+    border-radius: 2vh;
+    box-shadow:  0vh 1vh 9vh #4b2605;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+    
+} 
+
+#form h2{
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    margin-top: 5vh;
+    font-size: 3vh;
+} 
+
+ #loginForm:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+} 
+
+#buttonFormLogin{
+    background-color:rgb(58, 53, 53);
+    width: 20vw;
+    height: 4vh;
+    border-radius: 10px;
+    border: none;  
+    color: #ffffff;
+    margin-top: 4vh;
+    cursor: pointer;
+    transition: 0.1s;
+    font-size: 2vh;
+    margin-bottom: 10vh;
+}
+
+#buttonFormLogin:active{
+    background-color: black;
+    box-shadow:  0px 10px 50px black;
+}
+
+#form a{
+    text-decoration: none;
+    color: white;
+    margin-bottom: -3vh;
+    transition: 0.5s;
+}
+
+.submitLogin2{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+}
+
+.buttonsNav button{
+    height: 5vh;
+    width: 6vw;
+    border-radius: 1vh;
+    border: none;
+    background-color: #996637;
+    color: white;
+    font-weight: bold;
+    transition: 0.1s;
+    font-size: 2vh;
+    text-decoration: none;
+}
+.buttonsNav button a{
+
+    color: white;
+    font-weight: bold;
+    font-size: 2vh;
+    text-decoration: none;
+}
+.buttonsNav {
+    display: flex;
+    gap: 2vw;
+    margin-top: 2vh;
+    margin-right: 2vh;
+}
+.buttonsNav button:active{
+    background-color: #4b2605;
+    box-shadow:  0px 2px 8px #4b2605;
+}
+.buttonsNav button:hover{
+    border: solid 2px #4b2605;
+}
+.inputLogin{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2vh;
+    align-items: self-start;
+}
+.inputLogin input{
+    background-color:#996637;
+    width: 20vw;
+    height: 4vh;
+    border-radius: 1vh;
+    border: none; 
+    color: white;
+    outline: none;
+    transition: 0.2s;
+    font-size: 2vh;
+    padding-left: 20px;
+}
+.inputLogin input:focus{
+    box-shadow:  0px 10px 50px black;
+
+}
+
+
+    

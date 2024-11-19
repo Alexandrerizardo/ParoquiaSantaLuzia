@@ -1,3 +1,5 @@
+<%@page language="java" import="java.sql.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -29,6 +31,7 @@
         </div>
         <P id="titlePopUp">Inscreva-se!</P>
         <div class="contentFormCurso">
+          <input type="hidden" id="idCurso" name="idCurso">
           <input type="text" id="nameUser" placeholder="Nome completo">
           <span id="erroNome"></span>
           <input type="text" id="cpfUser" placeholder="CPF" maxlength="14" oninput="formatCPF(this)">
@@ -73,7 +76,7 @@
               <h3 id="titleCourseCard1">Catequese de adultos</h3>
               <p>1 ano de duração</p>
             </div>
-            <button id="btnPlus" type="button" onclick="popUp1()">Inscreva-se</button>
+            <button id="btnPlus" type="button" onclick="popUp(1)">Inscreva-se</button>
           </div>
         </div>
         <div class="principalCard">
@@ -86,7 +89,7 @@
               <h3 id="titleCourseCard2">Catequese de crianças</h3>
               <p>2 anos de duração</p>
             </div>
-            <button id="btnPlus" type="button" onclick="popUp2()">Inscreva-se</button>
+            <button id="btnPlus" type="button" onclick="popUp(2)">Inscreva-se</button>
           </div>
         </div>
         <div class="principalCard">
@@ -99,7 +102,7 @@
               <h3 id="titleCourseCard3">Educação financeira</h3>
               <p>3 meses de duração</p>
             </div>
-            <button  id="btnPlus" type="button" onclick="popUp3()">Inscreva-se</button>
+            <button  id="btnPlus" type="button" onclick="popUp(3)">Inscreva-se</button>
           </div>
         </div>
         <div class="principalCard">
@@ -112,7 +115,7 @@
               <h3 id="titleCourseCard4">Curso de matrimônio</h3>
               <p>6 meses de duração</p>
             </div>
-            <button  id="btnPlus" type="button" onclick="popUp4()">Inscreva-se</button>
+            <button  id="btnPlus" type="button" onclick="popUp(4)">Inscreva-se</button>
           </div>
         </div>
         <div class="principalCard">
@@ -125,7 +128,7 @@
               <h3 id="titleCourseCard5">Teologia e filosofia</h3>
               <p>1 ano e 6 meses de duração</p>
             </div>
-            <button  id="btnPlus" type="button" onclick="popUp5()">Inscreva-se</button>
+            <button  id="btnPlus" type="button" onclick="popUp(5)">Inscreva-se</button>
           </div>
         </div>
         <div class="principalCard">
@@ -138,7 +141,7 @@
               <h3 id="titleCourseCard6">Canto e instrumentos</h3>
               <p>1 ano de duração</p>
             </div>
-            <button  id="btnPlus" type="button" onclick="popUp6()">Inscreva-se</button>
+            <button  id="btnPlus" type="button" onclick="popUp(6)">Inscreva-se</button>
           </div>
         </div>
       </div>
