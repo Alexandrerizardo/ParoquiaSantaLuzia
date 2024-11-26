@@ -20,3 +20,7 @@ document.addEventListener('click', function(event) {
     }
 });
 
+function getOut(){
+    sessionStorage.removeItem('usuario');
+}
+

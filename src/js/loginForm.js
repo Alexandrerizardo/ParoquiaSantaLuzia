@@ -116,29 +116,32 @@ function verificarFormLogin(){
     let email = document.getElementById("email").value;
     let senha = document.getElementById("senha").value;
     let send = true;
-   // let lsEmail = localStorage.setItem()
-
+  
+    
     if (senha.length == 0) {  
         send = false;
         document.querySelector("#erroSenha").textContent = "Senha inválida.";
     } else if (senha.indexOf(" ") >= 0) {
         send = false;
         document.querySelector("#erroSenha").textContent = "Senha inválida, tire os espaços.";
-    }else{
+      }else{
         document.querySelector("#erroSenha").textContent = "";
     }
 
     if (email.indexOf("@") < 0 || email.length == 0) {
         send = false;
         document.querySelector("#erroEmail").textContent = "Email inválido.";
-    }else{
+      }else{
         document.querySelector("#erroEmail").textContent = "";
     }
 
     if (send) {
+      if (email.trim() !== "") {
+        sessionStorage.setItem("usuario", email);
+      } else {
+        console.log("O campo de email está vazio.");
+      }
       return true;
-        const modal = document.querySelector('#d2');
-        modal.showModal();
     }else{
       return false;
     }
@@ -146,9 +149,9 @@ function verificarFormLogin(){
 }
 
 function formatTel(input) {
-    let value = input.value.replace(/\D/g, "");
+  let value = input.value.replace(/\D/g, "");
   
-    if (value.length > 2 && value.length <= 7) {
+  if (value.length > 2 && value.length <= 7) {
       input.value = value.replace(/(\d{2})(\d+)/, "($1) $2");
     } else if (value.length > 7 && value.length <= 11) {
       input.value = value.replace(/(\d{2})(\d{5})(\d+)/, "($1) $2-$3");
@@ -156,3 +159,8 @@ function formatTel(input) {
       input.value = value;
     }
   }
+
+  function getOut(){
+    sessionStorage.removeItem('usuario');
+}
+

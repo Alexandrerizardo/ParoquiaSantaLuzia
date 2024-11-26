@@ -18,31 +18,37 @@
 
   Connection conexao;
 
-  conexao = DriverManager.getConnection(enderecoBanco, nomeUsuario, senhaBanco);
-  String queryEmail = "SELECT * FROM usuarios WHERE Email = ?";
-  String query = "INSERT INTO usuarios (Nome, Email, Senha, Telefone, Endereco) VALUES (?, ?, ?, ?, ?)";
+  try{
+    conexao = DriverManager.getConnection(enderecoBanco, nomeUsuario, senhaBanco);
+    String queryEmail = "SELECT * FROM usuarios WHERE Email = ?";
+    String query = "INSERT INTO usuarios (Nome, Email, Senha, Telefone, Endereco) VALUES (?, ?, ?, ?, ?)";
 
-  PreparedStatement stm = conexao.prepareStatement(query);
-  PreparedStatement stmEmail = conexao.prepareStatement(queryEmail);
+    PreparedStatement stm = conexao.prepareStatement(query);
+    PreparedStatement stmEmail = conexao.prepareStatement(queryEmail);
 
-  stmEmail.setString(1, femail);
-  stm.setString(1, fnome);
-  stm.setString(2, femail);
-  stm.setString(3, fsenha);
-  stm.setString(4, ftel);
-  stm.setString(5, fendereco);
+    stmEmail.setString(1, femail);
+    stm.setString(1, fnome);
+    stm.setString(2, femail);
+    stm.setString(3, fsenha);
+    stm.setString(4, ftel);
+    stm.setString(5, fendereco);
 
-  ResultSet email = stmEmail.executeQuery();
+    ResultSet email = stmEmail.executeQuery();
 
-  if(email.next()){
-    out.print("<p>Usuário já existe</p>");
-  }else{
-    stm.execute();
-    stm.close();
-    response.sendRedirect("okPage.jsp");
+    if(email.next()){
+        out.print("<P>Usuário Já existe!</P>");
+    }else{
+        stm.execute();
+        stm.close();
+        response.sendRedirect("okPage.jsp");
+    }
+
+  }catch(Exception err){
+        err.printStackTrace();
+        out.print("Erro ao conectar no banco de dados." + err);
   }
 
-  }
+}
 %>
 
 
@@ -69,12 +75,12 @@
     <img src="./assets/mainPage/intersecting-wave-layers.svg" alt="Divisor">
     <body>
         
-        <div>
+        <%-- <div>
             <dialog>
               <P>Usuário criado! Verifique seu email.</P>
               <button onclick="closeModal()">Sair</button>
             </dialog>
-          </div>
+          </div> --%>
 
         <div class="contentMainPage">
             <form name="cadastroForm" action="index.jsp" method="post" onsubmit="return verificarCadastro()">

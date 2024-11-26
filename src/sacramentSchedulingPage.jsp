@@ -1,26 +1,54 @@
 <%@page language="java" import="java.sql.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <%
-  String Fnome = request.getParameter("txtNome");
-  String Femail = request.getParameter("txtEmail");
-  String Ftel = request.getParameter("txtTel");
-  String Fsacrament = request.getParameter("txtSelect");
-  String Fdata = request.getParameter("txtData");
+  if ("POST".equals(request.getMethod())) {
+    String fnome = request.getParameter("txtNome");
+    String femail = request.getParameter("txtEmail");
+    String ftel = request.getParameter("txtTel");
+    String fselect = request.getParameter("txtSelect");
+    String fdata = request.getParameter("txtData");
+    String fusuario = request.getParameter("txtLS");
 
-  String nomeBanco = "paroquia";
-  String enderecoBanco = "jdbc:mysql://localhost:3306/" + nomeBanco;
-  String nomeUsuario = "root";
-  String senhaBanco = "";
+    String nomeBanco = "paroquia";
+    String enderecoBanco = "jdbc:mysql://localhost:3306/" + nomeBanco;
+    String nomeUsuario = "root";
+    String senhaBanco = "";
 
-  String driver = "com.mysql.jdbc.Driver";
-  Class.forName(driver);
+    String driver = "com.mysql.jdbc.Driver";
+    Class.forName(driver);
 
-  Connection conexao;
+    Connection conexao;
 
-  conexao = DriverManager.getConnection(enderecoBanco, nomeUsuario, senhaBanco);
+    try{
+      conexao = DriverManager.getConnection(enderecoBanco, nomeUsuario, senhaBanco);
+      String queryUsuario = "SELECT Id FROM usuarios WHERE Email = ?";
+      String query = "INSERT INTO agendasacramento (Nome_Participante, Email_Participante, Telefone_Participante, Sacramento, Data_Agendamento, Id_Usuario_Responsavel) VALUES (?, ?, ?, ?, ?, ?)";
 
+      PreparedStatement stm = conexao.prepareStatement(query);
+      PreparedStatement stmUsuario = conexao.prepareStatement(queryUsuario);
 
-  //String query = "INSERT INTO agendasacramento (Nome_Sacramento, Data_Agendada, CPF_Usuario)"
+      stmUsuario.setString(1, fusuario);
+      stm.setString(1, fnome);
+      stm.setString(2, femail);
+      stm.setString(3, ftel);
+      stm.setString(4, fselect);
+      stm.setString(5, fdata);
+      
 
+      ResultSet usuario = stmUsuario.executeQuery();
+
+      while(usuario.next()){
+        stm.setString(6, usuario.getString("Id"));
+      }
+      stm.execute();
+      stm.close();
+
+    }catch(Exception err){
+          err.printStackTrace();
+          out.print("Erro ao conectar no banco de dados." + err);
+    }
+
+}
 %>
 
 <!DOCTYPE html>
@@ -49,16 +77,16 @@
       <ul id="divNav">
       <h3>Menu do usuário</h3>
     <li id="contentNav">
-       <a href="./aboutUs.html"><button>Sobre nós</button></a>
+       <a href="./aboutUs.jsp"><button>Sobre nós</button></a>
     </li>
     <li id="contentNav">  
-        <a href="./coursePage.html"><button>Cursos</button></a>
+        <a href="./coursePage.jsp"><button>Cursos</button></a>
     </li>
     <li id="contentNav">
-        <a href="./ministeries&GroupsPage.html"><button>Ministerios e Grupos</button> </a>
+        <a href="./ministeries&GroupsPage.jsp"><button>Ministerios e Grupos</button> </a>
     </li>
     <li id="contentNav">
-        <a href="./index.html"><button>Sair</button></a>
+        <a href="./index.jsp"><button onclick="getOut()">Sair</button></a>
     </li>
   </ul>
   </nav>
@@ -69,13 +97,14 @@
 </div>
       <div class="containerMain">
 
-        <form class="mainForm" action="sacramentSchedulingPage.jsp" >
+        <form class="mainForm" action="sacramentSchedulingPage.jsp" method="post" onsubmit="return formValidation()">
           <div class="formContent">
             <div class="inputForm">
               <label for="txtName">Nome Completo:</label>
               <input name="txtNome" type="text" id="txtName">
               <span id="erroNome"></span>
             </div>
+             <input name="txtLS" type="hidden" id="txtLS">
             <div class="inputForm">      
               <label for="txtEmail">Email:</label>
               <input name="txtEmail" type="text" id="txtEmail">
@@ -91,10 +120,10 @@
               <label>Sacramento que deseja realizar:</label>
               <select name="txtSelect" id="selectForm" >
                 <option value="">  </option>
-                <option value="marry">Matrimônio</option>
-                <option value="baptism">Batismo</option>
-                <option value="first">Primeira Comunhão</option>
-                <option value="confission">Confissão</option>
+                <option value="Matrimônio">Matrimônio</option>
+                <option value="Batismo">Batismo</option>
+                <option value="Primeira Comunhão">Primeira Comunhão</option>
+                <option value="Confissão">Confissão</option>
               </select>
               <span id="erroSelect"></span>
             </div>
@@ -105,7 +134,7 @@
             </div>
 
             <div class="inputForm">
-              <input type="button"  id="buttonForm" onclick="formValidation()" value="Enviar">
+              <input type="submit"  id="buttonForm" value="Enviar">
             </div>
                   </div>
             </form>
