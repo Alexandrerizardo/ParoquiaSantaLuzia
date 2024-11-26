@@ -51,16 +51,16 @@
     <ul id="divNav">
     <h3>Menu do usuário</h3>
   <li id="contentNav">
-     <a href="./aboutUs.html"><button>Sobre nós</button></a>
+     <a href="./aboutUs.jsp"><button>Sobre nós</button></a>
   </li>
   <li id="contentNav">  
-      <a href="./ministeries&GroupsPage.html"><button>Ministérios e grupos</button></a>
+      <a href="./ministeries&GroupsPage.jsp"><button>Ministérios e grupos</button></a>
   </li>
   <li id="contentNav">
-      <a href="./sacramentSchedulingPage.html"><button>Agendar Sacramento</button> </a>
+      <a href="./sacramentSchedulingPage.jsp"><button>Agendar Sacramento</button> </a>
   </li>
   <li id="contentNav">
-      <a href="./index.html"><button>Sair</button></a>
+      <a href="./index.jsp"><button onclick="getOut()">Sair</button></a>
   </li>
 </ul>
 </nav>

@@ -153,3 +153,8 @@ function loginClear() {
   document.querySelector("#erroAddress").textContent = "";
   document.querySelector("#erroTel").textContent = "";
 }
+
+function getOut(){
+  sessionStorage.removeItem('usuario');
+}
+
