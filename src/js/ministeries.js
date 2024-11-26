@@ -28,3 +28,8 @@ function closeModal(){
     const modal = document.querySelector('dialog');
     modal.close();
 }
+
+function getOut(){
+    sessionStorage.removeItem('usuario');
+}
+

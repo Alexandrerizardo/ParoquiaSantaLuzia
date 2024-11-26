@@ -20,13 +20,17 @@ document.addEventListener("click", function (event) {
   }
 });
 
+
 function formValidation() {
   let nome = document.getElementById("txtName").value;
   let email = document.getElementById("txtEmail").value;
   let tel = document.getElementById("txtTel").value;
   let select = document.getElementById("selectForm").value;
+  document.getElementById("txtLS").value = sessionStorage.getItem('usuario');
+  console.log(sessionStorage.getItem('usuario'))
   let send = true;
 
+  
   const regexTel = /^\d{2}\ \d{5}\-\d{4}$/;
 
   if (nome.length == 0) {
@@ -60,7 +64,9 @@ function formValidation() {
   }
 
   if (send) {
-    popUp();
+    return true;
+  }else{
+    return false;
   }
 }
 
@@ -93,3 +99,8 @@ function loginClear() {
   document.querySelector("#erroEmail").textContent = "";
   document.querySelector("#erroSenhaConfirm").textContent = "";
 }
+
+function getOut(){
+  sessionStorage.removeItem('usuario');
+}
+
