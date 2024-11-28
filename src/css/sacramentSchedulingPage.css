@@ -326,4 +326,81 @@ dialog button{
     font-size: 2vh;
 
 }
+
+#consulta{
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#btnConsulta{
+    margin-bottom: 5vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 20vw;
+    height: 6vh;
+    border-radius: 1vh;
+    color: white;
+    background-color: #713f12;
+    border: none;
+    font-size: 2vh;
+    transition: 0.2s;
+}
+
+#btnConsulta:active{
+    background-color: #4b2605;
+    box-shadow: 0 10px 20px 0 #4b2605;
+    transform: scale(0.9);
+}
+#btnConsulta:hover{
+    background-color: #4b2605;
+    box-shadow: 0 10px 20px 0 #4b2605;
+}
+
+/* Estilos gerais para a tabela */
+table {
+    width: 70%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffffff;
+}
+
+th {
+    text-align: center;
+    background-color: #713f12; 
+    color: white; 
+    padding: 10px 15px;
+    text-align: left;
+    font-size: 16px;
+}
+
+
+td {
+    text-align: center;
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+
+
+td, th {
+    text-align: center;
+    border-radius: 4px;
+}
+
+td, th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+tr:last-child td {
+    border-bottom: 2px solid #ffffff;
+}
+
         
