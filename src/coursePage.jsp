@@ -1,5 +1,61 @@
 <%@page language="java" import="java.sql.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
+<%
+  if ("POST".equals(request.getMethod())) {
+
+    String fnome = request.getParameter("txtNome");
+    String fcpf = request.getParameter("txtCPF");
+    String fendereco= request.getParameter("txtEndereco");
+    String ftel = request.getParameter("txtTel");
+    String femail = request.getParameter("txtEmail");
+    String fcurso = request.getParameter("txtCurso");
+    String fusuario = request.getParameter("txtLS");
+
+
+
+       String nomeBanco = "paroquia";
+       String enderecoBanco = "jdbc:mysql://localhost:3306/" + nomeBanco;
+       String nomeUsuario = "root";
+       String senhaBanco = "";
+
+       String driver = "com.mysql.jdbc.Driver";
+       Class.forName(driver);
+
+       Connection conexao;
+
+      try{
+         conexao = DriverManager.getConnection(enderecoBanco, nomeUsuario, senhaBanco);
+         String queryUsuario = "SELECT Id FROM usuarios WHERE Email = ?";
+         String query = "INSERT INTO cursos (Nome_Aluno, Endereco_Aluno, CPF_Aluno, Email_Aluno, Telefone_Aluno, Nome_Curso, Id_Usuario_Responsavel) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+         PreparedStatement stm = conexao.prepareStatement(query);
+         PreparedStatement stmUsuario = conexao.prepareStatement(queryUsuario);
+
+         stmUsuario.setString(1, fusuario);
+         stm.setString(1, fnome);
+         stm.setString(2, fendereco);
+         stm.setString(3, fcpf);
+         stm.setString(4, femail);
+         stm.setString(5, ftel);
+         stm.setString(6, fcurso);
+  
+
+       ResultSet usuario = stmUsuario.executeQuery();
+
+       while(usuario.next()){
+         stm.setString(7, usuario.getString("Id"));
+       }
+       stm.execute();
+       stm.close();
+
+       response.sendRedirect("confirmCourse.jsp");
+     }catch(Exception err){
+           err.printStackTrace();
+           out.print("Erro ao conectar no banco de dados." + err);
+     }
+
+}
+%>
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -29,21 +85,30 @@
         <div class="closeBtn">
           <button onclick="closeModal()" id="btnClose">X</button>
         </div>
-        <P id="titlePopUp">Inscreva-se!</P>
+        <P id="titlePopUp"></P>
         <div class="contentFormCurso">
-          <input type="hidden" id="idCurso" name="idCurso">
-          <input type="text" id="nameUser" placeholder="Nome completo">
+         <form name="courseForm" action="coursePage.jsp" method="post" onsubmit="return verificarCurso()">
+          <input name="txtCurso" type="hidden" id="idCurso">
+          <input name="txtLS" type="hidden" id="txtLS">
+
+          <input name="txtNome" type="text" id="nameUser" placeholder="Nome completo">
           <span id="erroNome"></span>
-          <input type="text" id="cpfUser" placeholder="CPF" maxlength="14" oninput="formatCPF(this)">
+
+          <input name="txtCPF" type="text" id="cpfUser" placeholder="CPF" maxlength="14" oninput="formatCPF(this)">
           <span id="erroCPF"></span>
-          <input type="text" id="addressUser" placeholder="Endereço">
+
+          <input name="txtEndereco" type="text" id="addressUser" placeholder="Endereço">
           <span id="erroAddress"></span>
-          <input type="text" id="telUser" placeholder="Telefone" maxlength="15" oninput="formatTel(this)">
+
+          <input name="txtTel" type="text" id="telUser" placeholder="Telefone" maxlength="15" oninput="formatTel(this)">
           <span id="erroTel"></span>
-          <input type="text" id="emailUser" placeholder="Email">
+
+          <input name="txtEmail" type="text" id="emailUser" placeholder="Email">
           <span id="erroEmail"></span>
+
+         <input type="submit" id="btnSubmit" value="Enviar">
+        </form>
         </div>
-        <button onclick="verificarCurso()" id="btnSubmit">Enviar</button>
       </dialog>
     </div> 
 

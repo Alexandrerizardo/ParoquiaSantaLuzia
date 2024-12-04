@@ -43,7 +43,7 @@
       stm.execute();
       stm.close();
 
-      response.sendRedirect("sacramentSchedulingPage.jsp");
+      response.sendRedirect("confirmScheduling.jsp");
     }catch(Exception err){
           err.printStackTrace();
           out.print("Erro ao conectar no banco de dados." + err);

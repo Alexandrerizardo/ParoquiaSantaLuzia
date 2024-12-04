@@ -34,6 +34,7 @@
             if(!senhaUsuario.equals(fsenha)){
                 out.print("<p>Senha Incorreta.</p>");
             }else{
+                session.setAttribute("Email", fEmail);
                 out.print("<p>Login Bem sucedido!</p>");
                 response.sendRedirect("aboutUs.jsp");
             }
@@ -42,14 +43,10 @@
         if(!email.next()){
             out.print("<p>Email Incorreto.</p>");
         }
-
-        if(email.next() && senha.next()){
-             out.print("<p>Usuário Aceito.</p>");
-        }
     }
     catch(Exception err){
         err.printStackTrace();
-        out.print("<p>Erro ao concetar ao banco de Dados. Tente novamente mais tarde!</p>");
+        out.print("<p>Erro ao conectar ao banco de Dados. Tente novamente mais tarde!</p>");
     }
     }
 %>

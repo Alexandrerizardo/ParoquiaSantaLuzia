@@ -46,14 +46,17 @@
 
 <div id="consulta">
 
-   <form method="POST" action="mySchedulingPage.jsp">
+    <%-- <form method="POST" action="mySchedulingPage.jsp">
             <input name="txtLS" type="hidden" id="txtLS">
         <button id="btnConsulta" type="submit">Buscar Agendamentos</button>
-    </form>
+    </form>  --%>
 
-        <% if ("POST".equals(request.getMethod())) {
-             String localData = request.getParameter("txtLS");
-             //out.print(localData);
+        <% if ("GET".equals(request.getMethod())) {
+            if(session.getAttribute("Email") == null){
+                out.print("bloqueado!!");
+            }
+             Object local = session.getAttribute("Email");
+             String emailUser = local.toString();
 
             String nomeBanco = "paroquia";
             String enderecoBanco = "jdbc:mysql://localhost:3306/" + nomeBanco;
@@ -73,7 +76,7 @@
 
                 PreparedStatement stmUsuario = conexao.prepareStatement(queryUsuario);
                 PreparedStatement stm = conexao.prepareStatement(sql);
-                stmUsuario.setString(1, localData);
+                stmUsuario.setString(1, emailUser);
 
                 ResultSet usuario = stmUsuario.executeQuery();
                  while(usuario.next()){
@@ -85,9 +88,9 @@
                 out.print("<table>");
                     out.print("<thead>");
                         out.print("<tr>");
-                            out.print("<th>Nome</th>");
                             out.print("<th>Email</th>");
                             out.print("<th>Telefone</th>");
+                            out.print("<th>Sacramento</th>");
                             out.print("<th>Data de Agendamento</th>");
                         out.print("</tr>");
                     out.print("</thead>");

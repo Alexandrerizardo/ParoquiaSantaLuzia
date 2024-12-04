@@ -1,4 +1,49 @@
 <%@page language="java" import="java.sql.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%
+  if ("POST".equals(request.getMethod())) {
+
+    String fcurso = request.getParameter("txtCurso");
+    String fusuario = request.getParameter("txtLS");
+
+       String nomeBanco = "paroquia";
+       String enderecoBanco = "jdbc:mysql://localhost:3306/" + nomeBanco;
+       String nomeUsuario = "root";
+       String senhaBanco = "";
+
+       String driver = "com.mysql.jdbc.Driver";
+       Class.forName(driver);
+
+       Connection conexao;
+
+      try{
+         conexao = DriverManager.getConnection(enderecoBanco, nomeUsuario, senhaBanco);
+         String queryUsuario = "SELECT Id FROM usuarios WHERE Email = ?";
+         String query = "INSERT INTO ministerios (Ministerio, Id_Usuario) VALUES (?, ?)";
+
+         PreparedStatement stm = conexao.prepareStatement(query);
+         PreparedStatement stmUsuario = conexao.prepareStatement(queryUsuario);
+
+         stmUsuario.setString(1, fusuario);
+         stm.setString(1, fcurso);
+  
+
+       ResultSet usuario = stmUsuario.executeQuery();
+
+       while(usuario.next()){
+         stm.setString(2, usuario.getString("Id"));
+       }
+       stm.execute();
+       stm.close();
+
+       response.sendRedirect("confirmCourse.jsp");
+     }catch(Exception err){
+           err.printStackTrace();
+           out.print("Erro ao conectar no banco de dados." + err);
+     }
+
+}
+%>
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -51,7 +96,7 @@
                         <div>
                           <p>O Ministério da Eucaristia é formado por ministros que auxiliam na distribuição da Sagrada Comunhão durante as missas. Eles também levam a Eucaristia aos enfermos e pessoas impossibilitadas de ir à igreja, garantindo que todos possam participar desse momento.</p>
                         </div>
-                        <button onclick="popUp()">Saber mais</button>
+                        <button onclick="popUp(1)">Saber mais</button>
                       </div> 
                 </div>
             </div>
@@ -64,7 +109,7 @@
                         <p>
                           O Ministério do Dízimo é responsável por conscientizar a comunidade sobre a importância da contribuição regular. O valor arrecadado ajuda a manter as atividades da igreja, apoiar obras sociais e garantir o funcionamento da paróquia.</p>
                       </div>
-                      <button onclick="popUp()">Saber mais</button>
+                      <button onclick="popUp(2)">Saber mais</button>
                     </div> 
               </div>
           </div>
@@ -77,7 +122,7 @@
                       <p>
                         O Ministério de Jovens é voltado para a integração e formação espiritual dos jovens da comunidade. Através de encontros, retiros e atividades, o grupo busca aproxima os jovens da fé, promovendo momentos de partilha, reflexão e convivência cristã.</p>
                     </div>
-                    <button onclick="popUp()">Saber mais</button>
+                    <button onclick="popUp(3)">Saber mais</button>
                   </div> 
             </div>
         </div>
@@ -89,17 +134,25 @@
                   <div>
                     <p>O Ministério de Coroinhas e Acólitos é composto por crianças e jovens que auxiliam nas celebrações litúrgicas. Eles ajudam o sacerdote no altar, cuidando dos objetos litúrgicos e contribuindo para que a missa aconteça de forma organizada e solene.</p>
                   </div>
-                  <button onclick="popUp()">Saber mais</button>
+                  <button onclick="popUp(4)">Saber mais</button>
                 </div> 
           </div>
       </div>
 
-  <div>
-    <dialog>
-      <P>Recurso disponível em breve!</P>
-      <button onclick="closeModal()">Sair</button>
-    </dialog>
-  </div>
+ <div>
+      <dialog>
+        <div class="closeBtn">
+          <button onclick="closeModal()" id="btnClose">X</button>
+        </div>
+         <form name="ministeriesForm" action="ministeries&GroupsPage.jsp" method="post" onsubmit="return ministerio()">
+          <P id="titlePopUp"></P>
+          <input name="txtCurso" type="hidden" id="idCurso">
+          <input name="txtLS" type="hidden" id="txtLS">
+         <input type="submit" id="btnSubmit" value="Inscrever-se">
+        </form>
+        </div>
+      </dialog>
+    </div> 
     <div class="gruposContainer">
         <div class="gruposDiv">
           <h2>Pastoral de louvor e adoração</h2>
@@ -108,7 +161,7 @@
                 <div>
                   <p>O Ministério de Louvor e Adoração é responsável por animar as celebrações com músicas que elevam a espiritualidade da comunidade. Por meio do canto e dos instrumentos, eles conduzem os fiéis a uma experiência mais profunda de oração e conexão com Deus.</p>
                 </div>
-                <button onclick="popUp()">Saber mais</button>
+                <button onclick="popUp(5)">Saber mais</button>
               </div> 
         </div>
     </div>
@@ -121,7 +174,7 @@
               <div>
                 <p>A Pastoral da Saúde tem a missão de oferecer apoio espiritual, emocional e, muitas vezes, material às pessoas enfermas. Os membros visitam hospitais e casas, levando conforto, a Palavra de Deus e, quando necessário, a Eucaristia, cuidando daqueles que mais precisam de atenção e carinho.</p>
               </div>
-              <button onclick="popUp()">Saber mais</button>
+              <button onclick="popUp(6)">Saber mais</button>
             </div> 
       </div>
   </div>
