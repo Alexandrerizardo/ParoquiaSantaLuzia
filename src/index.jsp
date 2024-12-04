@@ -36,7 +36,8 @@
     ResultSet email = stmEmail.executeQuery();
 
     if(email.next()){
-        out.print("<P>Usuário Já existe!</P>");
+        out.print("<p id='span'>Usuário já existe!</p>");
+        //out.print("<div><dialog><P>Usuário já criado!</P><button onclick='closeModal()'>Sair</button></dialog></div>");
     }else{
         stm.execute();
         stm.close();
@@ -75,12 +76,7 @@
     <img src="./assets/mainPage/intersecting-wave-layers.svg" alt="Divisor">
     <body>
         
-        <%-- <div>
-            <dialog>
-              <P>Usuário criado! Verifique seu email.</P>
-              <button onclick="closeModal()">Sair</button>
-            </dialog>
-          </div> --%>
+       
 
         <div class="contentMainPage">
             <form name="cadastroForm" action="index.jsp" method="post" onsubmit="return verificarCadastro()">

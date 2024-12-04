@@ -17,6 +17,7 @@ header{
     justify-content: space-between;
     align-items: center;
     height: 15vh;
+    z-index: 0;
 }
 header h2{
     margin-left: 25px;
@@ -247,6 +248,4 @@ dialog button{
     font-size: 2vh;
 
 }
-        
-    
   
