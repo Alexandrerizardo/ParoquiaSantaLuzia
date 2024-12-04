@@ -43,6 +43,7 @@
       stm.execute();
       stm.close();
 
+      response.sendRedirect("confirmScheduling.jsp");
     }catch(Exception err){
           err.printStackTrace();
           out.print("Erro ao conectar no banco de dados." + err);
@@ -84,6 +85,9 @@
     </li>
     <li id="contentNav">
         <a href="./ministeries&GroupsPage.jsp"><button>Ministerios e Grupos</button> </a>
+    </li>
+    <li id="contentNav">
+        <a href="./mySchedulingPage.jsp"><button>Meus Agendamentos</button> </a>
     </li>
     <li id="contentNav">
         <a href="./index.jsp"><button onclick="getOut()">Sair</button></a>

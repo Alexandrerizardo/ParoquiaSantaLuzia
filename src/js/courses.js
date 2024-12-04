@@ -22,7 +22,8 @@ function popUp(idPopUp) {
 
   const modal = document.querySelector("dialog");
   document.querySelector("#titlePopUp").textContent = obterNomeCurso(idPopUp);
-  document.querySelector("#idCurso").value = idPopUp;
+  document.querySelector("#idCurso").value = obterNomeCurso(idPopUp);
+  document.querySelector("#idCurso").textContent = obterNomeCurso(idPopUp);
   modal.showModal();
 }
 
@@ -63,6 +64,7 @@ function verificarCurso() {
   const endereco = document.getElementById("addressUser").value;
   const telefone = document.getElementById("telUser").value;
   const email = document.getElementById("emailUser").value;
+  document.getElementById("txtLS").value = sessionStorage.getItem('usuario');
   let send = true;
 
   const regexCPF = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
@@ -114,10 +116,14 @@ function verificarCurso() {
   }
 
   if (send) {
-    loginClear();
-    document.querySelector("dialog").style.height = "50vh";
-    closeModal();
-    alert("Inscrição feita!");
+    console.log(nome);
+    console.log(endereco);
+    console.log(cpf);
+    console.log(telefone);
+    console.log(email);
+    return true;
+  }else{
+    return false;
   }
 }
 function formatCPF(input) {

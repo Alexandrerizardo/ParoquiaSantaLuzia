@@ -31,6 +31,9 @@
       <li id="contentNav">
           <a href="./sacramentSchedulingPage.jsp"><button>Agendar Sacramento</button> </a>
       </li>
+        <li id="contentNav">
+        <a href="./mySchedulingPage.jsp"><button>Meus Agendamentos</button> </a>
+    </li>
       <li id="contentNav">
           <a href="./index.jsp"><button onclick="getOut()">Sair</button></a>
       </li>

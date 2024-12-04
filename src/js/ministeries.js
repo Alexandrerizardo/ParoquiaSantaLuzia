@@ -19,11 +19,6 @@ document.addEventListener('click', function(event) {
     }
 });
 
-function popUp(){
-    const modal = document.querySelector('dialog');
-    modal.showModal();
-}
-
 function closeModal(){
     const modal = document.querySelector('dialog');
     modal.close();
@@ -32,4 +27,45 @@ function closeModal(){
 function getOut(){
     sessionStorage.removeItem('usuario');
 }
+
+function popUp(idPopUp) {
+
+    const modal = document.querySelector("dialog");
+    document.querySelector("#titlePopUp").textContent = obterNomeCurso(idPopUp);
+    document.querySelector("#idCurso").value = obterNomeCurso(idPopUp);
+    document.querySelector("#idCurso").textContent = obterNomeCurso(idPopUp);
+    modal.showModal();
+  }
+  
+  function obterNomeCurso(idPopUp) {
+    switch (idPopUp) {
+      case 1:
+        return "Ministério da Eucaristia";
+      case 2:
+        return "Ministério do dízimo";
+      case 3:
+        return "MJ - Ministério Jovem";
+      case 4:
+        return "Pastoral dos coroinhas";
+      case 5:
+        return "Pastoral de louvor e adoração";
+      case 6:
+        return "Pastoral de louvor e adoração";
+    }
+  } 
+  
+  function ministerio() {
+    document.getElementById("txtLS").value = sessionStorage.getItem('usuario');
+    let send = true;
+
+    if(document.getElementById("txtLS").value == null){
+       send = false;
+    }
+  
+    if (send) {
+      return true;
+    }else{
+      return false;
+    }
+  }
 
